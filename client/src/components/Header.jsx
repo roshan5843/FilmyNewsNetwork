@@ -16,7 +16,9 @@ const Header = () => {
         </span>
       </Link>
       <form className=''>
-        <TextInput type='text' placeholder='Search...' rightIcon={AiOutlineSearch} />
+        <TextInput type='text' placeholder='Search...' rightIcon={AiOutlineSearch}
+          className='hidden lg:inline'
+        />
       </form>
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
@@ -26,7 +28,7 @@ const Header = () => {
           <FaMoon />
         </Button>
         <Link to='/sign-in'>
-          <Button gradientDuoTone='purpleToBlue'>
+          <Button gradientDuoTone='purpleToBlue' outline>
             Sign In
           </Button>
         </Link>
