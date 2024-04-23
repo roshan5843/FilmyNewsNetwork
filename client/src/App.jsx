@@ -7,19 +7,21 @@ import SignUp from './pages/SignUp'
 import Dashboard from './pages/Dashboard'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   return (
     <BrowserRouter>
-              <Header />
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/movienews' element={<MovieNews />}/>
-        <Route path='/boxoffice' element={<BoxOffice />}/>
-        <Route path='/sign-in' element={<SignIn />}/>
-        <Route path='/sign-up' element={<SignUp />}/>
-        <Route path='/dashboard' element={<Dashboard />}/>
-
+        <Route path='/movienews' element={<MovieNews />} />
+        <Route path='/boxoffice' element={<BoxOffice />} />
+        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
