@@ -2,7 +2,7 @@
 // import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
 // import {Link} from 'react-router-dom'
-// 
+//
 // const DashPosts = () => {
 //   const { currentUser } = useSelector((state) => state.user)
 //   const [userPosts, setUserPosts] = useState([])
@@ -26,7 +26,7 @@
 //       fetchPosts()
 //     }
 //   }, [currentUser._id])
-// 
+//
 //   return <div>
 //     {currentUser.isAdmin && userPosts.length > 0 ? (
 //       <>
@@ -72,83 +72,80 @@
 //     )}
 //   </div>
 // }
-// 
+//
 // export default DashPosts
 
-
-import { Modal, Table, Button } from 'flowbite-react';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
-
+import { Modal, Table, Button } from 'flowbite-react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { HiOutlineExclamationCircle } from 'react-icons/hi'
 
 export default function DashPosts() {
-  const { currentUser } = useSelector((state) => state.user);
-  const [userPosts, setUserPosts] = useState([]);
-  const [showMore, setShowMore] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-  const [postIdToDelete, setPostIdToDelete] = useState('');
+  const { currentUser } = useSelector((state) => state.user)
+  const [userPosts, setUserPosts] = useState([])
+  const [showMore, setShowMore] = useState(true)
+  const [showModal, setShowModal] = useState(false)
+  const [postIdToDelete, setPostIdToDelete] = useState('')
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
-        const data = await res.json();
+        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
+        const data = await res.json()
         if (res.ok) {
-          setUserPosts(data.posts);
+          setUserPosts(data.posts)
           if (data.posts.length < 9) {
-            setShowMore(false);
+            setShowMore(false)
           }
         }
       } catch (error) {
-        console.log(error.message);
+        console.log(error.message)
       }
-    };
-    if (currentUser.isAdmin) {
-      fetchPosts();
     }
-  }, [currentUser._id]);
+    if (currentUser.isAdmin) {
+      fetchPosts()
+    }
+  }, [currentUser._id])
 
   const handleShowMore = async () => {
-    const startIndex = userPosts.length;
+    const startIndex = userPosts.length
     try {
       const res = await fetch(
         `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
-      );
-      const data = await res.json();
+      )
+      const data = await res.json()
       if (res.ok) {
-        setUserPosts((prev) => [...prev, ...data.posts]);
+        setUserPosts((prev) => [...prev, ...data.posts])
         if (data.posts.length < 9) {
-          setShowMore(false);
+          setShowMore(false)
         }
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message)
     }
-  };
+  }
 
   const handleDeletePost = async () => {
-    setShowModal(false);
+    setShowModal(false)
     try {
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
         {
           method: 'DELETE',
         }
-      );
-      const data = await res.json();
+      )
+      const data = await res.json()
       if (!res.ok) {
-        console.log(data.message);
+        console.log(data.message)
       } else {
         setUserPosts((prev) =>
           prev.filter((post) => post._id !== postIdToDelete)
-        );
+        )
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message)
     }
-  };
-
+  }
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
       {currentUser.isAdmin && userPosts.length > 0 ? (
@@ -165,8 +162,8 @@ export default function DashPosts() {
               </Table.HeadCell>
             </Table.Head>
             {userPosts.map((post) => (
-            <Table.Body className='divide-y'>
-              <Table.Row  className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+              <Table.Body className='divide-y'>
+                <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                   <Table.Cell>
                     {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>
@@ -191,8 +188,8 @@ export default function DashPosts() {
                   <Table.Cell>
                     <span
                       onClick={() => {
-                        setShowModal(true);
-                        setPostIdToDelete(post._id);
+                        setShowModal(true)
+                        setPostIdToDelete(post._id)
                       }}
                       className='font-medium text-red-500 hover:underline cursor-pointer'
                     >
@@ -208,7 +205,7 @@ export default function DashPosts() {
                     </Link>
                   </Table.Cell>
                 </Table.Row>
-            </Table.Body>
+              </Table.Body>
             ))}
           </Table>
           {showMore && (
@@ -248,5 +245,5 @@ export default function DashPosts() {
         </Modal.Body>
       </Modal>
     </div>
-  );
+  )
 }
