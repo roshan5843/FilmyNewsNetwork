@@ -14,6 +14,7 @@ import UpdatePost from './pages/UpdatePost'
 import PostPage from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import Search from './pages/Search'
+import About from './pages/About'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
         <Route path='/movienews' element={<MovieNews />} />
         <Route path='/boxoffice' element={<BoxOffice />} />
         <Route path='/sign-in' element={<SignIn />} />
