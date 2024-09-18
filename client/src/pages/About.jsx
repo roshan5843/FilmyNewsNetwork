@@ -27,7 +27,7 @@ export default function About() {
             <p>
               Curated Lists and Recommendations: Find your next favorite movie,
               whether you’re in the mood for a tearjerker, a thriller, or a
-              hidden indie gem. At [Your Blog Name], we aim to create a space
+              hidden indie gem. At FilmyNewsNetwork, we aim to create a space
               for fellow cinephiles to engage, debate, and share their love for
               the movies. Join us on this cinematic journey as we celebrate the
               power of storytelling through film.

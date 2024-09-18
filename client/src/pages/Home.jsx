@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
       <h1 className='text-3xl font-bold lg:text-6xl'>
-        Welcome to FilmyNewsNework - Your Gateway to the World of Cinema!
+        Welcome to FilmyNewsNetwork - Your Gateway to the World of Cinema!
       </h1>
       <p className='text-gray-500 text-xs sm:text-sm'>
         At FilmyNewsNetwork, we’re passionate about movies from Bollywood and

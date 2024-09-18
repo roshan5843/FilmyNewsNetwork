@@ -3,7 +3,7 @@
 const MovieNews = () => {
   return (
     <div>
-      Movienews Separate section comming soon !!
+      Movienews Separate section coming soon !!
     </div>
   )
 }

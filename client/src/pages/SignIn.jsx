@@ -48,8 +48,9 @@ const SignIn = () => {
             </span>
           </Link>
           <p className='text-sm mt-5'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sint hic
-            quibusdam praesentium numquam harum?
+          At FilmyNewsNetwork, we’re passionate about movies from Bollywood and
+        world cinema's blockbusters to indie gems, cult classics to
+        international masterpieces.
           </p>
         </div>
 
@@ -91,7 +92,7 @@ const SignIn = () => {
             <OAuth />
           </form>
           <div className=' flex gap-2 text-sm mt-5'>
-            <span> Dont have an account?</span>
+            <span> Don't have an account?</span>
             <Link to='/sign-up' className='text-blue-500'>
               Sign Up
             </Link>

@@ -40,7 +40,7 @@ export default function FooterCom() {
         <div className='w-full sm:flex sm:items-center sm:justify-between'>
           <Footer.Copyright
             href='https://www.instagram.com/filmynewsnetwork/'
-            by="FilmiNewsNetwork"
+            by="FilmyNewsNetwork"
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">

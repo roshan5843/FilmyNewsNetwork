@@ -48,8 +48,9 @@ const SignUp = () => {
             </span>
           </Link>
           <p className='text-sm mt-5'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sint hic
-            quibusdam praesentium numquam harum?
+          At FilmyNewsNetwork, we’re passionate about movies from Bollywood and
+        world cinema's blockbusters to indie gems, cult classics to
+        international masterpieces.
           </p>
         </div>
 
