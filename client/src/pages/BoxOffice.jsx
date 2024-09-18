@@ -1,6 +1,6 @@
 const BoxOffice = () => {
     return (
-        <div>hello</div>
+        <div>Commig Soon!!</div>
     )
 }
 

@@ -118,7 +118,7 @@ const Header = () => {
           <Link to='/about'>About</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/movienew'>MovieNews</Link>
+          <Link to='/movienews'>MovieNews</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/'} as={'div'}>
           <Link to='/boxoffice'>BoxOffice</Link>

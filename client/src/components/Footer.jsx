@@ -15,35 +15,16 @@ export default function FooterCom() {
           </div>
           <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>
             <div>
-              <Footer.Title title='About' />
-              <Footer.LinkGroup col>
-                <Footer.Link
-                  href='https://www.100jsprojects.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  All Boxoffice
-                </Footer.Link>
-                <Footer.Link
-                  href='/about'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  FilmyNewsNetwork
-                </Footer.Link>
-              </Footer.LinkGroup>
-            </div>
-            <div>
               <Footer.Title title='Follow us' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href='https://www.github.com/sahandghavidel'
+                  href='https://www.instagram.com/filmynewsnetwork/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Github
+                  Instagram
                 </Footer.Link>
-                <Footer.Link href='#'>Discord</Footer.Link>
+                <Footer.Link href='https://x.com/filmynewsnetwrk'>Twitter</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
