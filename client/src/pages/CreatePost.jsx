@@ -1,7 +1,6 @@
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react'
-import { useState } from 'react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
+import { useRef, useState } from 'react'
+import JoditEditor from 'jodit-react'
 import {
   getDownloadURL,
   getStorage,
@@ -11,15 +10,21 @@ import {
 import { app } from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const CreatePost = () => {
   const [file, setFile] = useState(null)
   const [imageUploadProgress, setImageUploadProgress] = useState(null)
   const [imageUploadError, setImageUploadError] = useState(null)
-  const [formData, setFormData] = useState({})
-  const [publishError, setPublishError] = useState(null);
+  const [formData, setFormData] = useState({
+    title: '',
+    category: 'uncategorized',
+    content: '', // Initialize as a string
+    image: '',
+  })
+  const [publishError, setPublishError] = useState(null)
   const navigate = useNavigate()
+  const editor = useRef(null)
   const handleUploadImage = async () => {
     try {
       if (!file) {
@@ -138,11 +143,9 @@ const CreatePost = () => {
             className='w-full h-72 object-cover'
           />
         )}
-        <ReactQuill
-          theme='snow'
-          placeholder='Write something...'
-          className='h-72 mb-12 '
-          required
+        <JoditEditor
+          ref={editor}
+          value={formData.content}
           onChange={(value) => {
             setFormData({ ...formData, content: value })
           }}
@@ -150,7 +153,11 @@ const CreatePost = () => {
         <Button type='submit' gradientDuoTone='purpleToPink'>
           Publish
         </Button>
-        {publishError && <Alert className='mt-5' color='failure'>{ publishError }</Alert>}
+        {publishError && (
+          <Alert className='mt-5' color='failure'>
+            {publishError}
+          </Alert>
+        )}
       </form>
     </div>
   )

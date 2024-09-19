@@ -43,7 +43,7 @@ const SignUp = () => {
         {/* left div */}
         <div className='flex-1'>
           <Link to='/' className='  font-bold dark:text-white text-4xl'>
-            <img src='/public/logo.png' alt='Logo' className='inline-block h-20 p-1 px-2' />
+            <img src='/logo.png' alt='Logo' className='inline-block h-20 p-1 px-2' />
           </Link>
           <p className='text-sm'>
           At FilmyNewsNetwork, we’re passionate about movies from Bollywood and

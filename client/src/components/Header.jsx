@@ -50,11 +50,8 @@ const Header = () => {
 
   return (
     <Navbar className='border-b-2'>
-      <Link
-        to='/'
-        className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
-      >
-        <img src='/logo.png' alt='Logo' className='inline-block h-12 p-1 px-2' />
+      <Link to='/' className='self-center'>
+        <img src='/logo.png' alt='Logo' className=' h-10 p-1 px-2' />
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -67,7 +64,7 @@ const Header = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+     <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>

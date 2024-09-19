@@ -8,7 +8,7 @@ export default function FooterCom() {
         <div className='grid w-full justify-between sm:flex md:grid-cols-1'>
           <div className='mt-5'>
           <Link to='/' className='  font-bold dark:text-white text-4xl'>
-            <img src='/public/logo.png' alt='Logo' className='inline-block h-20 p-1 px-2' />
+            <img src='/logo.png' alt='Logo' className='inline-block h-20 p-1 px-2' />
           </Link>
           </div>
           <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>

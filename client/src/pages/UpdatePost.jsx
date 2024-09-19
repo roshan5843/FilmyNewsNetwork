@@ -1,7 +1,6 @@
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react'
-import { useEffect, useState } from 'react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
+import { useEffect, useRef, useState } from 'react'
+import JoditEditor from 'jodit-react'
 import {
   getDownloadURL,
   getStorage,
@@ -12,17 +11,23 @@ import { app } from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 import { useNavigate, useParams } from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const UpdatePost = () => {
   const [file, setFile] = useState(null)
   const [imageUploadProgress, setImageUploadProgress] = useState(null)
   const [imageUploadError, setImageUploadError] = useState(null)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    title: '',
+    category: 'uncategorized',
+    content: '', // Initialize as a string
+    image: '',
+  })
   const [publishError, setPublishError] = useState(null)
   const { postId } = useParams()
-    const navigate = useNavigate()
-    const {currentUser} = useSelector((state) => state.user)
+  const navigate = useNavigate()
+  const editor = useRef(null)
+  const { currentUser } = useSelector((state) => state.user)
 
   useEffect(() => {
     try {
@@ -84,13 +89,16 @@ const UpdatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const res = await fetch(
+        `/api/post/updatepost/${formData._id}/${currentUser._id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      )
       const data = await res.json()
       if (!res.ok) {
         setPublishError(data.message)
@@ -165,12 +173,9 @@ const UpdatePost = () => {
             className='w-full h-72 object-cover'
           />
         )}
-        <ReactQuill
-          theme='snow'
+        <JoditEditor
+          ref={editor}
           value={formData.content}
-          placeholder='Write something...'
-          className='h-72 mb-12 '
-          required
           onChange={(value) => {
             setFormData({ ...formData, content: value })
           }}
