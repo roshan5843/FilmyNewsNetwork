@@ -51,7 +51,7 @@ const Header = () => {
   return (
     <Navbar className='border-b-2'>
       <Link to='/' className='self-center'>
-        <img src='/logo.png' alt='Logo' className=' h-10 p-1 px-2' />
+        <img src='/logo.png' alt='Logo' className=' h-8 p-1 px-2' />
       </Link>
 
       <form onSubmit={handleSubmit}>
