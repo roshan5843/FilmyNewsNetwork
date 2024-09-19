@@ -43,11 +43,9 @@ const SignUp = () => {
         {/* left div */}
         <div className='flex-1'>
           <Link to='/' className='  font-bold dark:text-white text-4xl'>
-            <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white '>
-              FilmyNewsNetwork
-            </span>
+            <img src='/public/logo.png' alt='Logo' className='inline-block h-20 p-1 px-2' />
           </Link>
-          <p className='text-sm mt-5'>
+          <p className='text-sm'>
           At FilmyNewsNetwork, we’re passionate about movies from Bollywood and
         world cinema's blockbusters to indie gems, cult classics to
         international masterpieces.

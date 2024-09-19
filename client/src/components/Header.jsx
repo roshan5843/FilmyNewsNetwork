@@ -54,7 +54,7 @@ const Header = () => {
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <img src='/public/assets/logo.png' alt='Logo' className='inline-block h-12 p-1 px-2' />
+        <img src='/logo.png' alt='Logo' className='inline-block h-12 p-1 px-2' />
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -120,7 +120,7 @@ const Header = () => {
           <Link to='/movienews'>Movie News</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/boxoffice'>BoxOffice</Link>
+          <Link to='/boxoffice'>Box-Office</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/'} as={'div'}>
           <Link to='/dashboard'>Dashboard</Link>

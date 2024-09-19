@@ -28,16 +28,6 @@ const Home = () => {
         artistry of filmmaking, explore behind-the-scenes trivia, and discover
         hidden cinematic treasures.
       </p>
-      <Link
-        to='/search'
-        className='text-xs sm:text-sm text-teal-500 font-bold hover:underline'
-      >
-        View all posts
-      </Link>
-      <div>
-        {' '}
-        <CallToAction />{' '}
-      </div>
       <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>
         {posts && posts.length > 0 && (
           <div className='flex flex-col gap-6'>
@@ -47,9 +37,18 @@ const Home = () => {
                 <PostCard key={post._id} post={post} />
               ))}
             </div>
-            <Link to={'/search'} className='text-lg text-teal-500 hover:underline text-center'>View All Posts</Link>
+            <Link
+              to={'/search'}
+              className='text-lg text-teal-500 hover:underline text-center'
+            >
+              View All Posts
+            </Link>
           </div>
         )}
+        <div>
+          {' '}
+          <CallToAction />{' '}
+        </div>
       </div>
     </div>
   )
