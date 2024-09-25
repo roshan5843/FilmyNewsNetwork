@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content=${post?.image} />
-    <meta property="og:title" content=${post?.title} />
 
-    <meta property="og:url" content="https//:filmynewsnetwork.onrender.com/" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content=${post?.image} />
-    <meta property="og:description" content="" />
-    <!-- <meta property="og:url" content=content={`https://yourwebsite.com/posts/${post.id}`} /> -->
+    <meta property="og:title" content={post.title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={post.image} />
+    <meta property="og:description" content="A description of your page or website." />
+    <meta property="og:site_name" content="" />
 
     <title>FilmyNewsNetwork</title>
   </head>
