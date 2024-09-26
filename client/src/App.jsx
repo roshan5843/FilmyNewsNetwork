@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Search from './pages/Search'
 import About from './pages/About'
 
+
 function App() {
   return (
     <BrowserRouter>
