@@ -59,6 +59,7 @@ const PostPage = ({ title, content, image }) => {
         <Spinner size='xl'></Spinner>
       </div>
     )
+    if (!post) return <div>Loading...</div>;
   return (
     <>
       <Helmet>
