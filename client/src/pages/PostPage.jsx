@@ -81,18 +81,6 @@ const PostPage = ({ title, content, image }) => {
         />
         <meta name='twitter:image' content={post.image} />
         <meta name='twitter:title' content={post.title} />
-
-        {/* 
-        <meta property='og:image' content={post.image} />
-        <meta property='og:type' content='article' />
-        <meta property='og:image:width' content='1200'/>
-        <meta property='og:image:height' content='675'/>
-        <meta property='og:image:type' content='image/jpeg/png'/>
-        <meta property='twitter:image:width' content='1200'/>
-        <meta property='twitter:image:height' content='675'/>
-        <meta property='twitter:image:type' content='image/jpeg/png'/>
-        <meta name='twitter:card' content='summary_large_image' />
-        {/* <meta name='twitter:title' content={post.title} /> */}
       </Helmet>
 
       
