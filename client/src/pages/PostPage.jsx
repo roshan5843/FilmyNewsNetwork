@@ -4,14 +4,15 @@ import { Button, Spinner } from 'flowbite-react'
 import CallToAction from '../components/CallToAction'
 import CommentSection from '../components/CommentSection'
 import PostCard from '../components/PostCard'
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-const PostPage = () => {
+const PostPage = ({ title, content, image }) => {
   const { postSlug } = useParams()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
   const [recentPosts, setRecentPosts] = useState(null)
+
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -61,25 +62,40 @@ const PostPage = () => {
   return (
     <>
       <Helmet>
-        <meta property='og:title' content={post.title} />
-        <meta property='og:description' content={post.description} />
-        <meta property='og:image' content={post.image} />
-        <meta property='og:type' content='article' />
-        <meta property='og:image:width' content='1200'></meta>
-        <meta property='og:image:height' content='675'></meta>
-        <meta property='og:image:type' content='image/jpeg/png'></meta>
-        <meta property='twitter:image:width' content='1200'></meta>
-        <meta property='twitter:image:height' content='675'></meta>
-        <meta property='twitter:image:type' content='image/jpeg/png'></meta>
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post.title} />
-        <meta name='twitter:description' content={post.description} />
         <meta
           property='og:url'
-          content='https://filmynewsnetwork.onrender.com'
-        ></meta>
+          content='https://filmynewsnetwork.onrender.com/'
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={post.title} />
+        <meta property='og:image' content={post.image} />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta
+          property='twitter:domain'
+          content='filmynewsnetwork.onrender.com'
+        />
+        <meta
+          property='twitter:url'
+          content='https://filmynewsnetwork.onrender.com/post/new-post'
+        />
+        <meta name='twitter:image' content={post.image} />
+        <meta name='twitter:title' content={post.title} />
+
+        {/* 
+        <meta property='og:image' content={post.image} />
+        <meta property='og:type' content='article' />
+        <meta property='og:image:width' content='1200'/>
+        <meta property='og:image:height' content='675'/>
+        <meta property='og:image:type' content='image/jpeg/png'/>
+        <meta property='twitter:image:width' content='1200'/>
+        <meta property='twitter:image:height' content='675'/>
+        <meta property='twitter:image:type' content='image/jpeg/png'/>
+        <meta name='twitter:card' content='summary_large_image' />
+        {/* <meta name='twitter:title' content={post.title} /> */}
       </Helmet>
 
+      
       <main className='p-3 flex-col max-w-6xl mx-auto min-h-screen'>
         <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
           {post && post.title}
@@ -121,6 +137,7 @@ const PostPage = () => {
           </div>
         </div>
       </main>
+      
     </>
   )
 }
