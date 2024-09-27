@@ -11,7 +11,8 @@
     "preview": "vite preview"
   },
   "reactSnap": {
-    "inlineCss": true
+    "inlineCss": true,
+    "source": "dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
