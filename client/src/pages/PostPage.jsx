@@ -53,13 +53,12 @@ const PostPage = ({ title, content, image }) => {
     }
   }, [])
 
-  if (loading)
+  if (loading && !post)
     return (
       <div className='flex justify-center items-center min-h-screen'>
         <Spinner size='xl'></Spinner>
       </div>
     )
-    if (!post) return <div>Loading...</div>;
   return (
     <>
       <Helmet>
