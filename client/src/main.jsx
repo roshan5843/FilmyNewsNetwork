@@ -15,22 +15,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </PersistGate>
 )
-
-// const isSnap = navigator.userAgent === 'ReactSnap';
-// 
-// ReactDOM.hydrateRoot(document.getElementById('root'), (
-//     <Provider store={store}>
-//         {/* Disable PersistGate during pre-rendering */}
-//         {isSnap ? (
-//             <ThemeProvider>
-//                 <App />
-//             </ThemeProvider>
-//         ) : (
-//             <PersistGate loading={null} persistor={persistor}>
-//                 <ThemeProvider>
-//                     <App />
-//                 </ThemeProvider>
-//             </PersistGate>
-//         )}
-//     </Provider>
-// ));
