@@ -4,7 +4,7 @@ import { Button, Spinner } from 'flowbite-react'
 import CallToAction from '../components/CallToAction'
 import CommentSection from '../components/CommentSection'
 import PostCard from '../components/PostCard'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 const PostPage = ({ title, content, image }) => {
   const { postSlug } = useParams()
