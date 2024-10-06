@@ -1,5 +1,4 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
 import Home from './pages/Home'
 import MovieNews from './pages/MovieNews'
 import BoxOffice from './pages/BoxOffice'
@@ -19,7 +18,6 @@ import About from './pages/About'
 
 function App() {
     return (
-        <HelmetProvider>
             <BrowserRouter>
                 <ScrollToTop/>
                 <Header/>
@@ -42,7 +40,6 @@ function App() {
                 </Routes>
                 <Footer/>
             </BrowserRouter>
-        </HelmetProvider>
     )
 }
 

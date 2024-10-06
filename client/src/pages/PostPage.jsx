@@ -4,14 +4,18 @@ import { Button, Spinner } from 'flowbite-react'
 import CallToAction from '../components/CallToAction'
 import CommentSection from '../components/CommentSection'
 import PostCard from '../components/PostCard'
-import { Helmet } from 'react-helmet-async'
+import MetaTags from './MetaTags'
 
-const PostPage = ({ title, content, image }) => {
+const PostPage = () => {
   const { postSlug } = useParams()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
   const [recentPosts, setRecentPosts] = useState(null)
+
+  const title = ''
+  const description = 'This is post page of movie news and box office data'
+  const keywords = 'movienews boxoffice'
 
 
   useEffect(() => {
@@ -61,29 +65,7 @@ const PostPage = ({ title, content, image }) => {
     )
   return (
     <>
-      <Helmet>
-        <meta
-          property='og:url'
-          content='https://filmynewsnetwork.onrender.com/'
-        />
-        <meta property='og:type' content='website' />
-        <meta property='og:title' content={post.title} />
-        <meta property='og:image' content={post.image} />
-
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta
-          property='twitter:domain'
-          content='filmynewsnetwork.onrender.com'
-        />
-        <meta
-          property='twitter:url'
-          content='https://filmynewsnetwork.onrender.com/post/new-post'
-        />
-        <meta name='twitter:image' content={post.image} />
-        <meta name='twitter:title' content={post.title} />
-      </Helmet>
-
-      
+     <MetaTags title={post.title} description={description} keywords={keywords} />
       <main className='p-3 flex-col max-w-6xl mx-auto min-h-screen'>
         <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
           {post && post.title}
