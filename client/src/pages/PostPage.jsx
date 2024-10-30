@@ -13,9 +13,9 @@ const PostPage = () => {
   const [post, setPost] = useState(null)
   const [recentPosts, setRecentPosts] = useState(null)
 
-  const title = ''
   const description = 'This is post page of movie news and box office data'
   const keywords = 'movienews boxoffice'
+
 
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const PostPage = () => {
     )
   return (
     <>
-     <MetaTags title={post.title} description={description} keywords={keywords} />
+     <MetaTags title={post.title} description={description} ogimage={post.image} keywords={keywords} />
       <main className='p-3 flex-col max-w-6xl mx-auto min-h-screen'>
         <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
           {post && post.title}
