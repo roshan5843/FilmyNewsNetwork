@@ -18,23 +18,20 @@ import ThemeProvider from './components/ThemeProvider.jsx'
 
 const rootElement = document.getElementById('root');
 
+const app = (
+    <PersistGate persistor={persistor}>
+        <Provider store={store}>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </Provider>
+    </PersistGate>
+);
+
 if (rootElement.hasChildNodes()) {
-    hydrateRoot(rootElement,
-        <PersistGate persistor={persistor}>
-            <Provider store={store}>
-                <ThemeProvider>
-                    <App/>
-                </ThemeProvider>
-            </Provider>
-        </PersistGate>); // Hydrate pre-rendered HTML
+    // Hydrate pre-rendered HTML (SSR)
+    hydrateRoot(rootElement, app);
 } else {
-    createRoot(rootElement).render(
-        <PersistGate persistor={persistor}>
-            <Provider store={store}>
-                <ThemeProvider>
-                    <App/>
-                </ThemeProvider>
-            </Provider>
-        </PersistGate>
-    ); // Render normally for CSR
+    // Render normally (CSR)
+    createRoot(rootElement).render(app);
 }
