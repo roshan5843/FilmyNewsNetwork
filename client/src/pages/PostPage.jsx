@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import { Button, Spinner } from 'flowbite-react'
 import CallToAction from '../components/CallToAction'
 import CommentSection from '../components/CommentSection'
@@ -8,39 +8,44 @@ import MetaTags from './MetaTags'
 
 const PostPage = () => {
   const { postSlug } = useParams()
+  const location = useLocation()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-  const [post, setPost] = useState(null)
+  const [post, setPost] = useState(location.state?.post || null)
   const [recentPosts, setRecentPosts] = useState(null)
+
+  console.log('post post page', post)
 
   const description = 'This is post page of movie news and box office data'
   const keywords = 'movienews boxoffice'
 
-
-
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        setLoading(true)
-        const res = await fetch(`/api/post/getposts?slug=${postSlug}`)
-        const data = await res.json()
-        if (!res.ok) {
+    console.log('this should priunt')
+    if (!post) {
+      console.log('only call if some issue in stae object from Link')
+      const fetchPost = async () => {
+        try {
+          setLoading(true)
+          const res = await fetch(`/api/post/getposts?slug=${postSlug}`)
+          const data = await res.json()
+          if (!res.ok) {
+            setError(true)
+            setLoading(false)
+            return
+          }
+          if (res.ok) {
+            setPost(data.posts[0])
+            setLoading(false)
+            setError(false)
+          }
+        } catch (error) {
           setError(true)
           setLoading(false)
-          return
         }
-        if (res.ok) {
-          setPost(data.posts[0])
-          setLoading(false)
-          setError(false)
-        }
-      } catch (error) {
-        setError(true)
-        setLoading(false)
       }
+      fetchPost()
     }
-    fetchPost()
-  }, [postSlug])
+  }, [post, postSlug])
 
   useEffect(() => {
     try {
@@ -65,7 +70,12 @@ const PostPage = () => {
     )
   return (
     <>
-     <MetaTags title={post.title} description={description} ogimage={post.image} keywords={keywords} />
+      <MetaTags
+        title={post.title}
+        description={description}
+        ogimage={post.image}
+        keywords={keywords}
+      />
       <main className='p-3 flex-col max-w-6xl mx-auto min-h-screen'>
         <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
           {post && post.title}
@@ -107,7 +117,6 @@ const PostPage = () => {
           </div>
         </div>
       </main>
-      
     </>
   )
 }
