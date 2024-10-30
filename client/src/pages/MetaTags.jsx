@@ -1,22 +1,23 @@
 import { Helmet } from 'react-helmet'
 
-function MetaTags(props) {
-  const { title, description, keywords, ogimage } = props
+function MetaTags({title, description, keywords, ogimage}) {
 
   return (
-    <div>
       <Helmet>
         <title>{title}</title>
-        <meta name='description' content={description} />
-        <meta name='keywords' content={keywords} />
+        <meta name='keywords' content={keywords}/>
+        <meta property="og:title" content={title}/>
+        <meta name="description" content={description}/>
+        <meta property="og:description" content={description}/>
+        <meta property="og:image" content={ogimage}/>
         <meta
-          property='og:image'
-          content={ogimage}
+            property="og:url"
+            content={ogimage}
         />
-        <meta property='og:url' content={ogimage} />
-        <meta property='og:type' content='website' />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image:alt" content="summary_large_image"/>
+        <meta name="twitter:site" content="@filmynewsnetwork"/>
       </Helmet>
-    </div>
   )
 }
 

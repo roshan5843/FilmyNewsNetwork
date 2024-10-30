@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import MetaTags from '../pages/MetaTags'
 
 export default function PostCard({ post }) {
   return (
