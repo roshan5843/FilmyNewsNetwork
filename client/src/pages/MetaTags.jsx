@@ -13,7 +13,7 @@ function MetaTags(props) {
           property='og:image'
           content={ogimage}
         />
-        <meta property='og:url' content={ogimage}
+        <meta property='og:url' content={ogimage} />
         <meta property='og:type' content='website' />
       </Helmet>
     </div>
