@@ -5,12 +5,15 @@ import { store, persistor } from './redux/store.js'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import ThemeProvider from './components/ThemeProvider.jsx'
+import {HelmetProvider} from "react-helmet-async";
 
 const app = (
     <PersistGate persistor={persistor}>
         <Provider store={store}>
             <ThemeProvider>
-                <App />
+                <HelmetProvider>
+                    <App />
+                </HelmetProvider>
             </ThemeProvider>
         </Provider>
     </PersistGate>
